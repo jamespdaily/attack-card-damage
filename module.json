@@ -20,13 +20,13 @@
     
   ],
   "esmodules": [
-    "/scripts/module.js"
+    "/scripts/attack-card-damage.js"
   ],
   "scripts": [
     "/scripts/lib/lib.js"
   ],
   "styles": [
-    "/styles/module.css"
+    "/styles/attack-card-damage.css"
   ],
   "languages": [
     {
