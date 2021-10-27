@@ -23,6 +23,6 @@ class AttackCardDamage {
     registerPackageDebugFlag(AttackCardDamage.ID);
   });
 
-  Hooks.on('renderChatMessage', ({ ChatMessagePF2e }) => {
-      console.log(ChatMessagePF2e.data.flags.pf2e.context.type);
+  Hooks.on('renderChatMessage', ({ message, html, data }) => {
+      console.log(message.data.flags.pf2e.context.type);
   });
