@@ -24,8 +24,5 @@ class AttackCardDamage {
   });
 
   Hooks.on('renderChatMessage', ({ message }) => {
-      console.log('oh fuck');
-      if (message.flags.pf2e.context.type === 'attack-roll') {
-        console.log('you mad lad');
-      }
+      console.log(message.flags.pf2e.context.type);
   });
