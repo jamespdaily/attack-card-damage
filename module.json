@@ -1,6 +1,6 @@
 {
-  "name": "module",
-  "title": "New Module",
+  "name": "attack-card-damage",
+  "title": "Attack Card Damage",
   "description": "",
   "version": "This is auto replaced",
   "library": "false",
@@ -9,9 +9,8 @@
   "compatibleCoreVersion": "0.8.8",
   "authors": [
     {
-      "name": "The League of Extraordinary FVTT Developers",
-      "url": "https://github.com/League-of-Foundry-Developers",
-      "discord": "discordID#0001"
+      "name": "Jim Daily",
+      "url": "https://github.com/jamespdaily/attack-card-damage"
     }
   ],
   "dependencies": [
