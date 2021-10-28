@@ -25,11 +25,5 @@ class AttackCardDamage {
 
   Hooks.on('renderChatMessage', ( message, data, html ) => {
     console.log(html);
-
-    if (message.data.flags.pf2e.context.type !== undefined) {
-      console.log('Oh good for you');
-    }
-
     //const currentMessageDataItem = html.find(`[data-message-id=]`)
-
   });
