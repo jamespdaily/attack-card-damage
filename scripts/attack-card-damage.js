@@ -4,7 +4,7 @@ Hooks.on('renderChatMessage', (message, html) => {
       let actor = game.actors.get(message.data.speaker.actor);
 
       const criticalLabel = game.i18n.localize("PF2E.CriticalDamageLabel");
-      const damageLabel = game.i18n.localize("PF2E.damageLabel")
+      const damageLabel = game.i18n.localize("PF2E.DamageLabel")
       const damageButton = $(`<button type="button" data-action="strikeDamage">${damageLabel}</button>`);
       const criticalButton = $(`<button type="button" data-action="strikeCritical">${criticalLabel}</button>`);
 
