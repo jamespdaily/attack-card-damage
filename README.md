@@ -11,4 +11,6 @@
 
 It puts the buttons on the cards or it gets the hose again.
 
+https://github.com/jamespdaily/attack-card-damage/releases/latest/download/module.json
+
 ## Changelog
