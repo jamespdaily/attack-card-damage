@@ -16,13 +16,14 @@ Hooks.on('renderChatMessage', (message, html, data) => {
       damageButton.click(e => {
         let actor = game.actors.get(message.data.speaker.actor);
         let weaponId = (message.data.flags.pf2e.origin.uuid).split(".")[3]
+        const options = actor.getRollOptions(['all', 'damage-roll']);
 
         console.log(weaponId);
         console.log(actor.data);
     
         e.stopPropagation();
     
-        (actor.data.data.actions ?? []).filter(action => action.type === 'strike').find(strike => strike.name === 'Dagger')?.damage(event);
+        actor.data.data.actions.find(s => s.name.toLowerCase().includes('dagger'))?.damage(event, options);
       })
 
       criticalButton.click(e => {
