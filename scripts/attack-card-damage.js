@@ -22,7 +22,7 @@ Hooks.on('renderChatMessage', (message, html, data) => {
     
         e.stopPropagation();
     
-        actor.data.data.actions.find((action) => action.id === weaponId).damage({event});
+        (actor.data.data.actions ?? []).filter(action => action.type === 'strike').find(strike => strike.name === 'Dagger')?.damage(event);
       })
 
       criticalButton.click(e => {
