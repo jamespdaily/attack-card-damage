@@ -14,8 +14,12 @@ Hooks.on('renderChatMessage', (message, html, data) => {
       const attackRollElement = html.find('.dice-roll').after(damageButtons);
 
       damageButton.click(e => {
+        let actor = game.actors.get(message.data.speaker.actor);
+        let weaponId = message.data.flags.pf2e.origin.uuid // Need to substring this? (sample ID: J2zSY5s0jPjYazda)
+    
         e.stopPropagation();
-        actor.data.data.actions.find((action) => action.id === weapon.id).damage({event});
+    
+        actor.data.data.actions.find((action) => action.id === weaponId).damage({event});
       })
 
       criticalButton.click(e => {
