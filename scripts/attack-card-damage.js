@@ -1,7 +1,7 @@
 Hooks.on('renderChatMessage', (message, html, data) => {
   if (typeof message.data.flags.pf2e.context !== 'undefined') {
     if (message.data.flags.pf2e.context.type === 'attack-roll') {
-      let actor = game.actors.get(message.speaker.actor);
+      let actor = game.actors.get(message.speaker.data.actor);
 
       const damageButton = $(`<button type="button" data-action="strikeDamage">Damage</button>`);
       const criticalButton = $(`<button type="button" data-action="strikeCritical">Critical</button>`);
