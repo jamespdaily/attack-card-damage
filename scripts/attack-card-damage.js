@@ -24,6 +24,6 @@ class AttackCardDamage {
   });
 
   Hooks.on('renderChatMessage', ( message, data, html ) => {
-    console.log(html);
-    //const currentMessageDataItem = html.find(`[data-message-id=]`)
+    console.log(message.data.flags.pf2e.context.type);
+
   });
