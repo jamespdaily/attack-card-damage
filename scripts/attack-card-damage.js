@@ -16,14 +16,13 @@ class AttackCardDamage {
     }
   }
   
-  /**
-   * Register our module's debug flag with developer mode's custom hook
-   */
-  Hooks.once('devModeReady', ({ registerPackageDebugFlag }) => {
-    registerPackageDebugFlag(AttackCardDamage.ID);
-  });
+/**
+ * Register our module's debug flag with developer mode's custom hook
+ */
+Hooks.once('devModeReady', ({ registerPackageDebugFlag }) => {
+  registerPackageDebugFlag(AttackCardDamage.ID);
+});
 
-  Hooks.on('renderChatMessage', ( message, data, html ) => {
-    console.log(message.data.flags.pf2e.context.type);
-
-  });
+Hooks.on('renderChatMessage', (message) => {
+  console.log(message.data.flags.pf2e.context.type);
+});
