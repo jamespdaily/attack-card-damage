@@ -1,6 +1,8 @@
 Hooks.on('renderChatMessage', (message, html, data) => {
   if (typeof message.data.flags.pf2e.context !== 'undefined') {
     if (message.data.flags.pf2e.context.type === 'attack-roll') {
+      let actor = game.actors.get(message.speaker.actor);
+
       const damageButton = $(`<button type="button" data-action="strikeDamage">Damage</button>`);
       const criticalButton = $(`<button type="button" data-action="strikeCritical">Critical</button>`);
 
@@ -13,7 +15,8 @@ Hooks.on('renderChatMessage', (message, html, data) => {
 
       damageButton.click(e => {
         e.stopPropagation();
-        actor.data.data.actions.find((action) => action.id === weapon.id).damage({event});
+        //actor.data.data.actions.find((action) => action.id === weapon.id).damage({event});
+        console.count(actor);
       })
 
       criticalButton.click(e => {
