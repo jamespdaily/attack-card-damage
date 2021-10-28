@@ -1,4 +1,4 @@
-Hooks.on('renderChatMessage', (message, html, data) => {
+Hooks.on('renderChatMessage', (message, html) => {
   if (typeof message.data.flags.pf2e.context !== 'undefined') {
     if (message.data.flags.pf2e.context.type === 'attack-roll') {
       let actor = game.actors.get(message.data.speaker.actor);
@@ -15,19 +15,22 @@ Hooks.on('renderChatMessage', (message, html, data) => {
 
       damageButton.click(e => {
         let actor = game.actors.get(message.data.speaker.actor);
-        let weaponId = (message.data.flags.pf2e.origin.uuid).split(".")[3]
+        let weaponName = (message.data.flags.pf2e.modifierName).split(": ")[1].toLowerCase();
         const options = actor.getRollOptions(['all', 'damage-roll']);
-
-        console.log(actor.data);
     
         e.stopPropagation();
     
-        actor.data.data.actions.find(s => s.name.toLowerCase().includes('large bastard sword'))?.damage(event, options);
+        actor.data.data.actions.find(s => s.name.toLowerCase().includes(weaponName))?.damage(event, options);
       })
 
       criticalButton.click(e => {
+        let actor = game.actors.get(message.data.speaker.actor);
+        let weaponName = (message.data.flags.pf2e.modifierName).split(": ")[1].toLowerCase();
+        const options = actor.getRollOptions(['all', 'damage-roll']);
+    
         e.stopPropagation();
-        console.log('clicky');
+    
+        actor.data.data.actions.find(s => s.name.toLowerCase().includes(weaponName))?.critical({event});
       })
     }
   }
