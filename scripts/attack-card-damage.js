@@ -15,8 +15,7 @@ Hooks.on('renderChatMessage', (message, html, data) => {
 
       damageButton.click(e => {
         e.stopPropagation();
-        //actor.data.data.actions.find((action) => action.id === weapon.id).damage({event});
-        console.count(actor);
+        actor.data.data.actions.find((action) => action.id === weapon.id).damage({event});
       })
 
       criticalButton.click(e => {
