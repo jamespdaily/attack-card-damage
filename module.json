@@ -1,7 +1,7 @@
 {
   "name": "attack-card-damage",
-  "title": "Attack Card Damage",
-  "description": "",
+  "title": "PF2e Attack Card Damage",
+  "description": "It puts the buttons on the cards or it gets the hose again.",
   "version": "This is auto replaced",
   "library": "false",
   "manifestPlusVersion": "1.0.0",
@@ -13,6 +13,9 @@
       "name": "Jim Daily",
       "url": "https://github.com/jamespdaily/attack-card-damage"
     }
+  ],
+  "system": [
+    "pf2e"
   ],
   "dependencies": [
 
