@@ -23,7 +23,7 @@ Hooks.on('renderChatMessage', (message, html, data) => {
     
         e.stopPropagation();
     
-        actor.data.data.actions.find(s => s.name.toLowerCase().includes('dagger'))?.damage(event, options);
+        actor.data.data.actions.find(s => s.name.toLowerCase().includes('large bastard sword'))?.damage(event, options);
       })
 
       criticalButton.click(e => {
