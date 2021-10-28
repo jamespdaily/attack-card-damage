@@ -3,8 +3,10 @@ Hooks.on('renderChatMessage', (message, html) => {
     if (message.data.flags.pf2e.context.type === 'attack-roll') {
       let actor = game.actors.get(message.data.speaker.actor);
 
-      const damageButton = $(`<button type="button" data-action="strikeDamage">Damage</button>`);
-      const criticalButton = $(`<button type="button" data-action="strikeCritical">Critical</button>`);
+      const criticalLabel = game.i18n.localize("PF2E.CriticalDamageLabel");
+      const damageLabel = game.i18n.localize("PF2E.damageLabel")
+      const damageButton = $(`<button type="button" data-action="strikeDamage">${damageLabel}</button>`);
+      const criticalButton = $(`<button type="button" data-action="strikeCritical">${criticalLabel}</button>`);
 
       const damageButtons = $(`<div class="pf2e chat-card action-card"> <div class="card-buttons" data-visibility="owner"> <div class="card-buttons-two-column"></div></div>`);
 
