@@ -17,8 +17,16 @@ Hooks.on('renderChatMessage', (message, html) => {
 
       damageButton.click(e => {
         let actor = game.actors.get(message.data.speaker.actor);
-        let weaponName = (message.data.flags.pf2e.modifierName).split(": ")[1].toLowerCase();
+        let weaponName;
         const options = actor.getRollOptions(['all', 'damage-roll']);
+
+        if (typeof message.data.flags.pf2e.modifierName !== 'undefined') {
+          weaponName = (message.data.flags.pf2e.modifierName).split(": ")[1].toLowerCase();
+        } 
+        else 
+        { 
+          weaponName = (message.data.flags.pf2e.flavor).split(" - ")[0].toLowerCase(); 
+        }
     
         e.stopPropagation();
     
@@ -27,12 +35,20 @@ Hooks.on('renderChatMessage', (message, html) => {
 
       criticalButton.click(e => {
         let actor = game.actors.get(message.data.speaker.actor);
-        let weaponName = (message.data.flags.pf2e.modifierName).split(": ")[1].toLowerCase();
+        let weaponName;
         const options = actor.getRollOptions(['all', 'damage-roll']);
+
+        if (typeof message.data.flags.pf2e.modifierName !== 'undefined') {
+          weaponName = (message.data.flags.pf2e.modifierName).split(": ")[1].toLowerCase();
+        } 
+        else 
+        { 
+          weaponName = (message.data.flags.pf2e.flavor).split(" - ")[0].toLowerCase(); 
+        }
     
         e.stopPropagation();
     
-        actor.data.data.actions.find(s => s.name.toLowerCase().includes(weaponName))?.critical({event});
+        actor.data.data.actions.find(s => s.name.toLowerCase().includes(weaponName))?.damage(event, options);
       })
     }
   }
