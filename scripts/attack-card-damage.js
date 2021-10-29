@@ -1,6 +1,6 @@
 Hooks.on('renderChatMessage', (message, html) => {
   if (typeof message.data.flags.pf2e.context !== 'undefined') {
-    if (message.data.flags.pf2e.context.type === 'attack-roll') {
+    if (message.data.flags.pf2e.context.type === 'attack-roll' && typeof message.data.flags.pf2e.modifierName != 'undefined') {
       let actor = game.actors.get(message.data.speaker.actor);
 
       const criticalLabel = game.i18n.localize("PF2E.CriticalDamageLabel");
@@ -17,16 +17,8 @@ Hooks.on('renderChatMessage', (message, html) => {
 
       damageButton.click(e => {
         let actor = game.actors.get(message.data.speaker.actor);
-        let weaponName;
+        let weaponName = (message.data.flags.pf2e.modifierName).split(": ")[1].toLowerCase();
         const options = actor.getRollOptions(['all', 'damage-roll']);
-
-        if (typeof message.data.flags.pf2e.modifierName !== 'undefined') {
-          weaponName = (message.data.flags.pf2e.modifierName).split(": ")[1].toLowerCase();
-        } 
-        else 
-        { 
-          weaponName = (message.data.flags.pf2e.flavor).split(" - ")[0].toLowerCase(); 
-        }
     
         e.stopPropagation();
     
@@ -35,20 +27,12 @@ Hooks.on('renderChatMessage', (message, html) => {
 
       criticalButton.click(e => {
         let actor = game.actors.get(message.data.speaker.actor);
-        let weaponName;
+        let weaponName = (message.data.flags.pf2e.modifierName).split(": ")[1].toLowerCase();
         const options = actor.getRollOptions(['all', 'damage-roll']);
-
-        if (typeof message.data.flags.pf2e.modifierName !== 'undefined') {
-          weaponName = (message.data.flags.pf2e.modifierName).split(": ")[1].toLowerCase();
-        } 
-        else 
-        { 
-          weaponName = (message.data.flags.pf2e.flavor).split(" - ")[0].toLowerCase(); 
-        }
     
         e.stopPropagation();
     
-        actor.data.data.actions.find(s => s.name.toLowerCase().includes(weaponName))?.damage(event, options);
+        actor.data.data.actions.find(s => s.name.toLowerCase().includes(weaponName))?.critical({event});
       })
     }
   }
