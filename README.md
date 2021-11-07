@@ -11,6 +11,10 @@
 
 It puts the buttons on the cards or it gets the hose again.
 
+The PF2E Attack Card Damage module adds buttons to roll Damage and Critical Damage directly from the chat card of a strike.
+
+![](https://raw.githubusercontent.com/jamespdaily/attack-card-damage/master/msedge_8T4RTCMXhl.png)
+
 https://github.com/jamespdaily/attack-card-damage/releases/latest/download/module.json
 
 ## Changelog
