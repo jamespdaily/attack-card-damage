@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/Foundry-v0.8.9-informational)
+![](https://img.shields.io/badge/Foundry-v0.9.0-informational)
 
 <!--- Downloads @ Latest Badge -->
 <!--- replace <user>/<repo> with your username/repository -->
