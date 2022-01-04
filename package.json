@@ -1,15 +1,15 @@
 {
   "private": true,
-  "name": "PF2e Attack Card Damage",
-  "description": "",
+  "name": "pf2e-attack-card-damage",
+  "description": "Adds damage and critical buttons to attack cards",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/jamespdaily/attack-card-damage"
   },
   "contributors": [
     {
-      "name": "",
-      "email": ""
+      "name": "Jim Daily",
+      "email": "jaypeedaylee@gmail.com"
     }
   ],
   "scripts": {
