@@ -8,17 +8,21 @@ export default class DamageButton {
   actions: Action;
 
   constructor(data) {
+    const uuid = data.flags.pf2e.origin.uuid.split('.');
+
     this.damageLabel = game.i18n.localize('PF2E.DamageLabel');
     this.criticalLabel = game.i18n.localize('PF2E.CriticalDamageLabel');
     this.actor = game.actors.get(data.speaker.actor);
-    this.weaponId = data.flags.pf2e.origin.uuid.split('.')[3];
+    this.weaponId = uuid[uuid.indexOf('Item') + 1];
   }
 
   rollDamage() {
-    this.actor.data.data.actions.find((action) => this.weaponId === action.item).damage({ event });
+    this.actor.data.data.actions.find((action) => this.weaponId === (action.item || action.sourceId)).damage({ event });
   }
 
   rollCritical() {
-    this.actor.data.data.actions.find((action) => this.weaponId === action.item).critical({ event });
+    this.actor.data.data.actions
+      .find((action) => this.weaponId === (action.item || action.sourceId))
+      .critical({ event });
   }
 }
