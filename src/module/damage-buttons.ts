@@ -9,8 +9,6 @@ export default class DamageButton {
 
   constructor(data) {
     const uuid = data.flags.pf2e.origin.uuid.split('.');
-    console.log('--------------------------------------');
-    console.log(uuid);
 
     this.damageLabel = game.i18n.localize('PF2E.DamageLabel');
     this.criticalLabel = game.i18n.localize('PF2E.CriticalDamageLabel');
