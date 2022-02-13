@@ -19,12 +19,16 @@ export default class DamageButton {
   rollDamage() {
     const weaponSlug = this.actor.physicalItems.filter((item) => item.data._id === this.weaponId)[0].data.data.slug;
 
-    this.actor.data.data.actions.find((action) => weaponSlug === action.slug).damage({ event });
+    this.actor.data.data.actions
+      .find((action) => weaponSlug === action.slug || this.weaponId === (action.item || action.sourceId))
+      .damage({ event });
   }
 
   rollCritical() {
     const weaponSlug = this.actor.physicalItems.filter((item) => item.data._id === this.weaponId)[0].data.data.slug;
 
-    this.actor.data.data.actions.find((action) => weaponSlug === action.slug).critical({ event });
+    this.actor.data.data.actions
+      .find((action) => (weaponSlug === action.slug) | (this.weaponId === (action.item || action.sourceId)))
+      .critical({ event });
   }
 }
