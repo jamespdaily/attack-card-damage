@@ -1,17 +1,10 @@
-// Import TypeScript modules
-
 import { preloadTemplates } from './preloadTemplates';
 import DamageButton from './damage-buttons';
 
-// Initialize module
 Hooks.once('init', async () => {
-  // Assign custom classes and constants here
-
-  // Preload Handlebars templates
   await preloadTemplates();
 });
 
-// Setup module
 Hooks.on('renderChatMessage', async (message, html) => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
