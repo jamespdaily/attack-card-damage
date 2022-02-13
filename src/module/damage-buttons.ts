@@ -28,12 +28,10 @@ export default class DamageButton {
   rollDamage() {
     this.actor.data.data.actions
       .find((action) => this.weaponSlug === action.slug || this.weaponId === (action.item || action.sourceId))
-      .damage({ event });
   }
 
   rollCritical() {
     this.actor.data.data.actions
       .find((action) => (this.weaponSlug === action.slug) | (this.weaponId === (action.item || action.sourceId)))
-      .critical({ event });
   }
 }
