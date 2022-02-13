@@ -26,12 +26,14 @@ export default class DamageButton {
   }
 
   rollDamage() {
-    this.actor.data.data.actions
-      .find((action) => this.weaponSlug === action.slug || this.weaponId === (action.item || action.sourceId))
+    this.actor.data.data.actions.find(
+      (action) => this.weaponSlug === action.slug || this.weaponId === (action.item || action.sourceId),
+    );
   }
 
   rollCritical() {
-    this.actor.data.data.actions
-      .find((action) => (this.weaponSlug === action.slug) | (this.weaponId === (action.item || action.sourceId)))
+    this.actor.data.data.actions.find(
+      (action) => (this.weaponSlug === action.slug) | (this.weaponId === (action.item || action.sourceId)),
+    );
   }
 }
