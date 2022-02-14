@@ -6,7 +6,6 @@ export default class DamageButton {
   actor: Actor;
   weaponId: string;
   weaponSlug: string;
-  actions: Action;
 
   constructor(data) {
     const uuid = data.flags.pf2e.origin.uuid.split('.');
@@ -26,14 +25,14 @@ export default class DamageButton {
   }
 
   rollDamage() {
-    this.actor.data.data.actions.find(
-      (action) => this.weaponSlug === action.slug || this.weaponId === (action.item || action.sourceId),
-    );
+    this.actor.data.data.actions
+      .find((action) => this.weaponSlug === action.slug || this.weaponId === (action.item || action.sourceId))
+      .damage({ event });
   }
 
   rollCritical() {
-    this.actor.data.data.actions.find(
-      (action) => (this.weaponSlug === action.slug) | (this.weaponId === (action.item || action.sourceId)),
-    );
+    this.actor.data.data.actions
+      .find((action) => (this.weaponSlug === action.slug) | (this.weaponId === (action.item || action.sourceId)))
+      .critical({ event });
   }
 }
