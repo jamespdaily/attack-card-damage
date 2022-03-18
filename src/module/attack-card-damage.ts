@@ -1,32 +1,18 @@
-import { preloadTemplates } from './preloadTemplates';
-import DamageButton from './damage-buttons';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
+Hooks.once('ready', () => {
+  const content = `\
+          <large>
+          <p>PF2e Attack Card Damage is now a part of the PF2e system by default.</p>
+          <p>You should uninstall this module, it will no longer be maintained.</p>
+          <p>I love you.</p>
+          </large>`;
 
-Hooks.once('init', async () => {
-  await preloadTemplates();
-});
-
-Hooks.on('renderChatMessage', async (message, html) => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  if (typeof message.data.flags.pf2e.context === 'undefined') {
-    return;
-  }
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  if (message.data.flags.pf2e.context.type !== 'attack-roll') {
-    return;
-  }
-
-  const buttonTemplate = 'modules/attack-card-damage/templates/damage-buttons.html';
-  const attackCardData = new DamageButton(message.data);
-  const attackCardHTML = await renderTemplate(buttonTemplate, attackCardData);
-  html.find('.dice-roll').after(attackCardHTML);
-
-  html[0].querySelector('#chatCardDamageButton')?.addEventListener('click', () => {
-    attackCardData.rollDamage();
-  });
-
-  html[0].querySelector('#chatCardCriticalButton')?.addEventListener('click', () => {
-    attackCardData.rollCritical();
-  });
+  new Dialog({
+    title: 'PF2e Attack Card Damage',
+    content,
+    buttons: {
+      ok: { icon: '<i class="fas fa-check"></i>', label: 'Understood' },
+    },
+  }).render(true);
 });
