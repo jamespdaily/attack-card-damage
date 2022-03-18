@@ -8,10 +8,4 @@
 <!--- replace <your-module-name> with the `name` in your manifest -->
 <!--- ![Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fattack-card-damage&colorB=4aa94a) -->
 
-# PF2e Attack Card Damage
-
-It puts the buttons on the cards or it gets the hose again.
-
-https://github.com/jamespdaily/attack-card-damage/releases/latest/download/module.json
-
-![](https://github.com/jamespdaily/attack-card-damage/blob/master/screenshots/screenshot1.png)
+UPDATE: THIS MODULE NOW COME WITH THE PF2E SYSTEM BY DEFAULT, I WILL NO LONGER BE MAINTAINING THIS MODULE SO FEEL FREE TO REMOVE IT. I LOVE YOU.
